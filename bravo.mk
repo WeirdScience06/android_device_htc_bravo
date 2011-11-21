@@ -25,7 +25,7 @@ PRODUCT_COPY_FILES += \
     device/htc/bravo/init.bravo.rc:root/init.bravo.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=220 \
+    ro.sf.lcd_density=240 \
     rild.libpath=/system/lib/libhtc_ril.so \
     ro.ril.ecc.HTC-ELL=92,93,94 \
     ro.ril.ecc.HTC-WWE=999 \
@@ -105,7 +105,9 @@ PRODUCT_PACKAGES += \
     gps.bravo \
     libOmxCore \
     libOmxVidEnc \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+    audio.primary.qsd8k \
+    audio_policy.qsd8k
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

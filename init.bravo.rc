@@ -34,8 +34,8 @@ on boot
     chown system camera /sys/devices/platform/flashlight.0/leds/flashlight/brightness
     chmod 0660          /sys/devices/platform/flashlight.0/leds/flashlight/brightness
 
-    # enable the GPS
-    setprop ro.ril.def.agps.mode 2
+    # enable the GPS #Set in build.prop
+    # setprop ro.ril.def.agps.mode 2
 
     # performance tweaks for flash
     write /sys/block/mtdblock3/bdi/read_ahead_kb 4
