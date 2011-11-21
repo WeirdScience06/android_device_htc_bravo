@@ -25,7 +25,7 @@ PRODUCT_COPY_FILES += \
     device/htc/bravo/init.bravo.rc:root/init.bravo.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240 \
+    ro.sf.lcd_density=220 \
     rild.libpath=/system/lib/libhtc_ril.so \
     ro.ril.ecc.HTC-ELL=92,93,94 \
     ro.ril.ecc.HTC-WWE=999 \
@@ -91,6 +91,9 @@ PRODUCT_COPY_FILES += \
 # media config xml file
 PRODUCT_COPY_FILES += \
     device/htc/bravo/media_profiles.xml:system/etc/media_profiles.xml
+
+# Get the long list of APNs
+PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_PACKAGES += \
     sensors.bravo \

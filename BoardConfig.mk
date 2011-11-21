@@ -63,14 +63,14 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 3200
 
 BOARD_VENDOR_USE_AKMD := akm8973
 
-BOARD_EGL_CFG := device/htc/bravo/egl.cfg
+#BOARD_EGL_CFG := device/htc/bravo/egl.cfg
 
-BOARD_USE_FROYO_LIBCAMERA := true
+#BOARD_USE_FROYO_LIBCAMERA := true
 
 BOARD_USES_QCOM_LIBS := true
 
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 # # cat /proc/mtd
 # dev:    size   erasesize  name
