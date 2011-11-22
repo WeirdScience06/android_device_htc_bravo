@@ -99,7 +99,6 @@ PRODUCT_PACKAGES += \
     sensors.bravo \
     lights.bravo \
     librs_jni \
-    gralloc.qsd8k \
     copybit.qsd8k \
     bravo-keypad.kcm \
     gps.bravo \
@@ -107,7 +106,8 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     com.android.future.usb.accessory \
     audio.primary.qsd8k \
-    audio_policy.qsd8k
+    audio_policy.qsd8k \
+    #gralloc.qsd8k
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
