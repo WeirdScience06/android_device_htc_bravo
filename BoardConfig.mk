@@ -98,3 +98,6 @@ TARGET_PREBUILT_KERNEL := device/htc/bravo/kernel
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := bravo
 # AMSS version to use for GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
+
+# Hardware rendering
+#USE_OPENGL_RENDERER := true
