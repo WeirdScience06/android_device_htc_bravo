@@ -112,7 +112,6 @@ PRODUCT_PACKAGES += \
     sensors.bravo \
     lights.bravo \
     librs_jni \
-    copybit.qsd8k \
     bravo-keypad.kcm \
     gps.bravo \
     libOmxCore \
@@ -121,7 +120,10 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.qsd8k \
     audio_policy.qsd8k \
-    gralloc.qsd8k
+    gralloc.qsd8k \
+    hwcomposer.default \
+    Stk
+#    copybit.qsd8k \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
