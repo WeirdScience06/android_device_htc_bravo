@@ -146,3 +146,6 @@ PRODUCT_COPY_FILES += \
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
+
+#Get some Gapps
+$(call inherit-product-if-exists, gapps/gapps.mk)
