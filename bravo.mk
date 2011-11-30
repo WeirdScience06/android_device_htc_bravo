@@ -22,14 +22,8 @@
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 PRODUCT_COPY_FILES += \
-    device/htc/bravo/init.bravo.rc:root/init.bravo.rc
-
-#  # Turn on checkjni for non-user builds.
-ADDITIONAL_BUILD_PROPERTIES += ro.kernel.android.checkjni=1
-#  # Set device insecure for non-user builds.
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-#  # Allow mock locations by default for non user builds
-ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
+    device/htc/bravo/init.bravo.rc:root/init.bravo.rc \
+    device/htc/bravo/ueventd.bravo.rc:root/ueventd.bravo.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
@@ -81,15 +75,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
-#market fix
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_ID=GRI40 PRODUCT_NAME=htc_bravo BUILD_FINGERPRINT=htc_wwe/htc_bravo/bravo:2.3.3/GRI40/96875.1:user/release-keys TARGET_BUILD_TYPE=userdebug BUILD_VERSION_TAGS=release-keys PRIVATE_BUILD_DESC="3.14.405.1 CL96875 release-keys"
-
-# Extra RIL settings
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ril.enable.managed.roaming=1 \
-    ro.ril.oem.nosim.ecclist=911,112,113,115,117,999,000,08,118,120,122,110,119,995 \
-    ro.ril.emc.mode=2
-
 DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay
 
 PRODUCT_COPY_FILES += \
@@ -120,10 +105,9 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.qsd8k \
     audio_policy.qsd8k \
-    gralloc.qsd8k \
     hwcomposer.default \
-    Stk
-#    copybit.qsd8k \
+    copybit.qsd8k \
+#    gralloc.qsd8k \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
