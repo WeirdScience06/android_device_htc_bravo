@@ -20,6 +20,22 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_ID=GRI40 PRODUCT_NAME=htc_bravo BUILD_FING
 PRODUCT_PACKAGES += \
     Camera
 
+#Temp packages
+PRODUCT_PACKAGES += \
+    bash \
+    ssh \
+    rsync \
+    Stk \
+    CMSettings
+
+#Disable HWAccel for now
+PRODUCT_PROPERTY += \
+    ro.config.disable_hw_accel=true
+
+#tryout ril workaround
+PRODUCT_PROPERTY += \
+    ro.telephony.ril.v3=skipbrokendatacall
+
 # Extra RIL settings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.enable.managed.roaming=1 \
@@ -40,3 +56,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
     # Disable visual strict mode, even on eng builds
 PRODUCT_DEFAULT_PROPERTY += persist.sys.strictmode.visual=0
+
+#My extras
+$(call inherit-product-if-exists, device/htc/passion/extras/extras.mk)
