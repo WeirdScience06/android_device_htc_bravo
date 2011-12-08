@@ -22,19 +22,18 @@ PRODUCT_PACKAGES += \
 
 #Temp packages
 PRODUCT_PACKAGES += \
-    bash \
-    ssh \
-    rsync \
-    Stk \
-    CMSettings
+    bash vim nano libncurses ssh rsync \
+    Stk CMSettings \
+    e2fsck resize2fs e2fsck \
+    libext2_com_err libext2_profile libext2_blkid libext2_e2p libext2_uuid libext2fs
 
 #Disable HWAccel for now
-PRODUCT_PROPERTY += \
-    ro.config.disable_hw_accel=true
+#PRODUCT_PROPERTY += \
+#    ro.config.disable_hw_accel=true
 
 #tryout ril workaround
-PRODUCT_PROPERTY += \
-    ro.telephony.ril.v3=skipbrokendatacall
+#PRODUCT_PROPERTY += \
+#    ro.telephony.ril.v3=skipbrokendatacall
 
 # Extra RIL settings
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -48,13 +47,13 @@ PRODUCT_VERSION_DEVICE_SPECIFIC := -drewis
 -include vendor/cyanogen/products/common_versions.mk
 
 #Get eng stuff on our userdebug builds
-    # Turn on checkjni for non-user builds.
+# Turn on checkjni for non-user builds.
 ADDITIONAL_BUILD_PROPERTIES += ro.kernel.android.checkjni=1
-    # Set device insecure for non-user builds.
+# Set device insecure for non-user builds.
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-    # Allow mock locations by default for non user builds
+# Allow mock locations by default for non user builds
 ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
-    # Disable visual strict mode, even on eng builds
+# Disable visual strict mode, even on eng builds
 PRODUCT_DEFAULT_PROPERTY += persist.sys.strictmode.visual=0
 
 #My extras
