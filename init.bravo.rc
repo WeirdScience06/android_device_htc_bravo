@@ -1,4 +1,5 @@
 on early-init
+    export TERMINFO /system/etc/terminfo
     export EXTERNAL_STORAGE /mnt/sdcard
     export SD_EXT_DIRECTORY /sd-ext
     mkdir /mnt/sdcard 0000 system system
@@ -69,7 +70,7 @@ on boot
     setprop ro.ril.fd.scron.timeout 4
     setprop ro.ril.fd.scroff.timeout 3
 
-# compass/accelerometer daemon
+    # compass/accelerometer daemon
 service akmd /system/bin/akmd
     class main
     user compass
@@ -96,7 +97,7 @@ service iprenew_eth0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-# bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
+    # bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
     class main
     disabled
@@ -109,6 +110,12 @@ service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
     user bluetooth
     group bluetooth net_bt_admin
     disabled
+
+    # Execute files in /etc/init.d before booting
+service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+    class main
+    disabled
+    oneshot
 
 service dspcrashd /system/bin/dspcrashd
 

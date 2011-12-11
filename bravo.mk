@@ -86,8 +86,10 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
 
 # media config xml file
 PRODUCT_COPY_FILES += \
@@ -103,11 +105,11 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     com.android.future.usb.accessory \
     audio.a2dp.default \
-    audio.primary.qsd8k \
-    audio_policy.qsd8k \
+    audio.primary.bravo \
+    audio_policy.bravo \
     hwcomposer.default \
-    copybit.qsd8k \
-#    gralloc.qsd8k \
+    copybit.bravo \
+    gralloc.bravo \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -132,6 +134,3 @@ PRODUCT_COPY_FILES += \
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
-
-#Get some Gapps
-$(call inherit-product-if-exists, gapps/gapps.mk)

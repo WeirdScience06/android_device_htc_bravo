@@ -24,16 +24,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bash vim nano libncurses ssh rsync \
     Stk CMSettings \
-    e2fsck resize2fs e2fsck \
+    e2fsck resize2fs mke2fs \
     libext2_com_err libext2_profile libext2_blkid libext2_e2p libext2_uuid libext2fs
 
 #Disable HWAccel for now
-#PRODUCT_PROPERTY += \
-#    ro.config.disable_hw_accel=true
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.config.disable_hw_accel=true
 
 #tryout ril workaround
-#PRODUCT_PROPERTY += \
-#    ro.telephony.ril.v3=skipbrokendatacall
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.telephony.ril.v3=signalstrength #skipbrokendatacall
 
 # Extra RIL settings
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -58,3 +58,6 @@ PRODUCT_DEFAULT_PROPERTY += persist.sys.strictmode.visual=0
 
 #My extras
 $(call inherit-product-if-exists, device/htc/passion/extras/extras.mk)
+
+#Get some Gapps
+#$(call inherit-product-if-exists, gapps/gapps.mk)
