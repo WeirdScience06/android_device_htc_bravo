@@ -69,10 +69,22 @@ BOARD_VENDOR_USE_AKMD := akm8973
 
 # Hardware rendering
 BOARD_EGL_CFG := device/htc/bravo/egl.cfg
-BOARD_USES_OVERLAY := true
-#USE_OPENGL_RENDERER := true
-#BOARD_USES_HGL := true
-COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DUNABLE_TO_DEQUEUE
+#BOARD_USES_OVERLAY := true
+##USE_OPENGL_RENDERER := true
+##BOARD_USES_HGL := true
+#COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DUNABLE_TO_DEQUEUE
+BOARD_USES_GENLOCK := true
+# unsure but adding it
+BOARD_USES_QCOM_LIBRPC := true
+BOARD_USE_QCOM_PMEM := true
+BOARD_USES_ADRENO_200 := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_SF_BYPASS := true
+TARGET_HAVE_BYPASS := true
+TARGET_USES_OVERLAY := true
+TARGET_GRALLOC_USES_ASHMEM := true
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
+TARGET_SPECIFIC_HEADER_PATH := device/htc/bravo/include
 
 BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_HARDWARE := true
@@ -85,6 +97,10 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 
 # From supersonic
 BOARD_USE_OPENSSL_ENGINE := true
+
+# HACKS
+BOARD_USE_LEGACY_TRACKPAD := true
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 
 # # cat /proc/mtd
 # dev:    size   erasesize  name
@@ -106,9 +122,3 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := bravo
 # AMSS version to use for GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
-
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
-
-#FIXME dont piggyback passion
-# Call headers from msm-3.0: needed to build libs in hardware/qcom/display
-TARGET_SPECIFIC_HEADER_PATH := device/htc/passion/include

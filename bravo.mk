@@ -56,9 +56,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.ril.enable.prl.recognition=1
 # Don't set /proc/sys/vm/dirty_ratio to 0 when USB mounting
 PRODUCT_PROPERTY_OVERRIDES += ro.vold.umsdirtyratio=20
 
-# Disable HWAccel for now
-ADDITIONAL_BUILD_PROPERTIES += ro.config.disable_hw_accel=true
-
 # Ril workaround
 ADDITIONAL_BUILD_PROPERTIES += ro.telephony.ril.v3=signalstrength
     #skipbrokendatacall,facilitylock,datacall,icccardstatus
@@ -81,21 +78,34 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/bravo/media_profiles.xml:system/etc/media_profiles.xml
 
-PRODUCT_PACKAGES += \
-    sensors.bravo \
-    lights.bravo \
-    librs_jni \
+# Sensors
+PRODUCT_PACKAGES := \
     gps.bravo \
-    libOmxCore \
-    libOmxVidEnc \
-    com.android.future.usb.accessory \
+    lights.bravo \
+    sensors.bravo
+# Audio
+PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.qsd8k \
     audio_policy.qsd8k \
-    hwcomposer.default \
+    libaudioutils
+# GPU
+PRODUCT_PACKAGES += \
     copybit.qsd8k \
     gralloc.qsd8k \
-
+    hwcomposer.default \
+    hwcomposer.qsd8k \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libtilerenderer \
+    libQcomUI
+# Omx
+PRODUCT_PACKAGES += \
+    libOmxCore \
+    libOmxVenc \
+    libOmxVdec \
+    libstagefrighthw
 PRODUCT_LOCALES := en
 
 # Passion uses high-density artwork where available
